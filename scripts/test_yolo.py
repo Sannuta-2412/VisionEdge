@@ -1,9 +1,13 @@
 from ultralytics import YOLO
 
-# Load a pretrained YOLO model
+# Load the model
 model = YOLO("yolov8n.pt")
 
-# Run object detection on an example image
-results = model("https://ultralytics.com/images/bus.jpg", save=True)
+# Run detection on the sample image
+results = model.predict(
+    source="bus.jpg",
+    device="mps",
+    save=True
+)
 
-print("Detection completed successfully!")
+print("✅ Detection completed!")
