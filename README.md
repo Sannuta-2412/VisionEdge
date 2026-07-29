@@ -1,1 +1,0 @@
-Hi, I cloned the VisionEdge repository successfully. Right now, I can only see the `.gitignore` and `README.md` files. Could you please push the project files or let me know if I need to switch to another branch? Thanks!
