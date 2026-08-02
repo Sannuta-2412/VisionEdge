@@ -1,30 +1,40 @@
 # VisionEdge - AI Object Detection Module
 
 ## Overview
-VisionEdge is an AI-powered real-time object detection project developed using Python, OpenCV, and YOLOv8. The application detects objects from a live webcam feed and displays bounding boxes with class labels in real time.
+
+This module is part of the VisionEdge project. It performs real-time object detection using YOLOv8 and OpenCV through a live webcam.
 
 ## Features
+
 - Real-time object detection
-- Live webcam integration
-- YOLOv8 pretrained model
-- ONNX model export
-- Bounding box visualization
+- Live webcam detection
+- Custom colored bounding boxes
+- Object labels with confidence score
+- FPS (Frames Per Second) counter
+- Total object counter
+- Individual object counting
+- Confidence threshold filtering
+- Custom information panel
+- Optimized for Apple Silicon (MPS)
 
 ## Technologies Used
-- Python
-- OpenCV
-- Ultralytics YOLOv8
-- ONNX
 
-## Project Structure
+- Python
+- YOLOv8
+- OpenCV
+- PyTorch
+- Ultralytics
+- NumPy
+
+## Folder Structure
+
 ```
 VisionEdge/
+│
 ├── scripts/
-│   ├── webcam_detect.py
-│   ├── test_yolo.py
-│   └── export_onnx.py
+│   └── webcam_detect.py
+│
 ├── yolov8n.pt
-├── yolov8n.onnx
 ├── README.md
 ```
 
@@ -33,18 +43,37 @@ VisionEdge/
 Install dependencies:
 
 ```bash
-pip install ultralytics opencv-python torch torchvision numpy
+pip install ultralytics opencv-python torch
 ```
 
-Run the application:
+Run:
 
 ```bash
 python3 scripts/webcam_detect.py
 ```
 
-## Future Improvements
+## Current Output
 
-- Improve object detection accuracy using a larger model or custom training.
-- Add video file support.
-- Optimize inference speed.
-- Integrate the AI module into the complete VisionEdge application.s
+- Live webcam feed
+- Real-time object detection
+- Custom bounding boxes
+- Confidence scores
+- FPS counter
+- Total detected objects
+- Object count by category
+
+## Future Enhancements
+
+- Screenshot capture
+- Video recording
+- Detection history
+- Session statistics
+- Detection alerts
+
+## Author
+
+**Sannuta**
+
+B.Tech – Computer Science Engineering (AI & ML)
+
+Dayananda Sagar Universitys
