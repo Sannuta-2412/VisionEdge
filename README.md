@@ -107,4 +107,4 @@ python3 scripts/export_onnx.py
 
 B.Tech – Computer Science Engineering (AI & ML)
 
-Dayananda Sagar Universitys
+Dayananda Sagar University
