@@ -6,7 +6,7 @@ from ultralytics import YOLO
 # -----------------------------------
 # Load YOLO Model
 # -----------------------------------
-model = YOLO("../yolov8n.pt")
+model = YOLO("../yolov8s.pt")
 
 CONFIDENCE_THRESHOLD = 0.50
 
