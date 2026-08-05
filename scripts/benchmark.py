@@ -4,7 +4,7 @@ import psutil
 from ultralytics import YOLO
 
 # Load model
-model = YOLO("yolov8n.onnx", task="detect")
+model = YOLO("yolov8s.onnx", task="detect")
 
 # Load image
 image = cv2.imread("car.jpg")

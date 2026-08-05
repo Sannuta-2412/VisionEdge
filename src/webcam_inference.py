@@ -2,7 +2,7 @@ import cv2
 from ultralytics import YOLO
 
 print("1. Loading model...")
-model = YOLO("yolov8n.onnx", task="detect")
+model = YOLO("yolov8s.onnx", task="detect")
 print("2. Model loaded")
 
 cap = cv2.VideoCapture(0)
