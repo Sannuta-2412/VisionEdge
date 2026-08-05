@@ -1,5 +1,6 @@
 import cv2
 import time
+from datetime import datetime
 from collections import Counter
 from ultralytics import YOLO
 
@@ -128,14 +129,16 @@ while True:
             2
         )
 
-    # -----------------------------
-    # FPS
+       # -----------------------------
+    # FPS & Inference Time
     # -----------------------------
     current_time = time.time()
 
     if prev_frame_time == 0:
         fps = 0
+        inference_time = 0
     else:
+        inference_time = (current_time - prev_frame_time) * 1000
         fps = 1 / (current_time - prev_frame_time)
 
     prev_frame_time = current_time
@@ -147,9 +150,9 @@ while True:
     # -----------------------------
     cv2.rectangle(
         annotated_frame,
-        (5,5),
-        (260,180),
-        (30,30,30),
+        (5, 5),
+        (320, 230),
+        (30, 30, 30),
         -1
     )
 
@@ -158,10 +161,10 @@ while True:
     cv2.putText(
         annotated_frame,
         "VISIONEDGE",
-        (15,y),
+        (15, y),
         cv2.FONT_HERSHEY_SIMPLEX,
         0.8,
-        (0,255,255),
+        (0, 255, 255),
         2
     )
 
@@ -170,10 +173,10 @@ while True:
     cv2.putText(
         annotated_frame,
         f"FPS : {int(fps)}",
-        (15,y),
+        (15, y),
         cv2.FONT_HERSHEY_SIMPLEX,
         0.65,
-        (0,255,0),
+        (0, 255, 0),
         2
     )
 
@@ -182,10 +185,22 @@ while True:
     cv2.putText(
         annotated_frame,
         f"Objects : {total_objects}",
-        (15,y),
+        (15, y),
         cv2.FONT_HERSHEY_SIMPLEX,
         0.65,
-        (255,255,0),
+        (255, 255, 0),
+        2
+    )
+
+    y += 30
+
+    cv2.putText(
+        annotated_frame,
+        f"Inference : {inference_time:.1f} ms",
+        (15, y),
+        cv2.FONT_HERSHEY_SIMPLEX,
+        0.60,
+        (0, 255, 255),
         2
     )
 
@@ -196,14 +211,29 @@ while True:
         cv2.putText(
             annotated_frame,
             f"{name}: {count}",
-            (15,y),
+            (15, y),
             cv2.FONT_HERSHEY_SIMPLEX,
             0.55,
-            (255,255,255),
+            (255, 255, 255),
             2
         )
 
         y += 25
+
+    # -----------------------------
+    # Timestamp
+    # -----------------------------
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    cv2.putText(
+        annotated_frame,
+        timestamp,
+        (10, annotated_frame.shape[0] - 15),
+        cv2.FONT_HERSHEY_SIMPLEX,
+        0.55,
+        (0, 255, 255),
+        2
+    )
 
     # -----------------------------
     # Display
@@ -215,7 +245,6 @@ while True:
 
     if cv2.waitKey(1) & 0xFF == ord("q"):
         break
-
 print("\nStopping VisionEdge...")
 
 cap.release()
